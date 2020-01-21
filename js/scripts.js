@@ -25,7 +25,27 @@ $(document).ready(function(){
   // Un alert espone 5 numeri casuali.
   var gameNumbers = alert(defaultNumbers);
 
+  // Start Game
 
+  var userNumbersList = [];
+
+  setTimeout(userTry, 1000);
+
+  function userTry() {
+    // Chiedo N numeri fino a 5 unici
+    while (userNumbersList.length < numbersToRemember) {
+      var numUser = parseInt(prompt('Inserisci il numero')); // Numero utente
+      var check = isInArray(userNumbersList, numUser); // True or false
+      if (check == false) {
+        userNumbersList.push(numUser);
+      } else {
+        alert('Hai già inserito questo numero!');
+      }
+    }
+    console.log('NUMERI UTENTE: ' + userNumbersList);
+  }
+
+  console.log('NUMERI RANDOM: ' + defaultNumbers);
 
 
   //////////////////////////////////////////////////
